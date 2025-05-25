@@ -1,42 +1,324 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.header {
+  background-color: #4a5568;
+  color: white;
+  padding: 1rem 2rem;
   text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.tab-navigation {
+  display: flex;
+  justify-content: center;
+  background-color: #e2e8f0;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #cbd5e0;
+}
+
+.tab-button {
+  background-color: transparent;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #4a5568;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 6px;
+  margin: 0 8px;
+}
+
+.tab-button:hover:not(.active) {
+  background-color: #cbd5e0;
+  color: #2d3748;
+}
+
+.tab-button.active {
+  background-color: #6366f1;
+  color: white;
+  box-shadow: 0 2px 5px rgba(99, 102, 241, 0.3);
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.section-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border-bottom: 2px solid #edf2f7;
+  padding-bottom: 0.75rem;
+}
+
+.form-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+  .form-grid {
+      grid-template-columns: 1fr 1fr;
   }
-  to {
-    transform: rotate(360deg);
+  .form-grid button {
+      grid-column: span 2;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.form-field {
+  display: flex;
+  flex-direction: column;
 }
 
-.card {
-  padding: 2em;
+.form-label {
+  font-size: 0.95rem;
+  color: #4a5568;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
 }
 
-.read-the-docs {
-  color: #888;
+.form-input, .form-textarea {
+  padding: 0.8rem 1rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #2d3748;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus, .form-textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  display: inline-block;
+}
+
+.btn:disabled {
+  background-color: #cbd5e0;
+  color: #718096;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-indigo {
+  background-color: #6366f1;
+  color: white;
+  box-shadow: 0 3px 6px rgba(99, 102, 241, 0.3);
+}
+
+.btn-indigo:hover:not(:disabled) {
+  background-color: #4f46e5;
+  transform: translateY(-2px);
+}
+
+.btn-blue {
+  background-color: #3b82f6;
+  color: white;
+  box-shadow: 0 3px 6px rgba(59, 130, 246, 0.3);
+}
+
+.btn-blue:hover:not(:disabled) {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+.btn-red {
+  background-color: #ef4444;
+  color: white;
+  box-shadow: 0 3px 6px rgba(239, 68, 68, 0.3);
+}
+
+.btn-red:hover:not(:disabled) {
+  background-color: #dc2626;
+  transform: translateY(-2px);
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-top: 1.5rem;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.data-table th, .data-table td {
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.data-table th {
+  background-color: #f8faff;
+  color: #4a5568;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tbody tr:hover {
+  background-color: #f0f4f8;
+}
+
+.table-empty-message {
+  text-align: center;
+  padding: 40px 20px;
+  color: #718096;
+  font-style: italic;
+}
+
+.table-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 0 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.patient-count {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.footer {
+  background-color: #4a5568;
+  color: white;
+  text-align: center;
+  padding: 1rem 2rem;
+  margin-top: auto;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3b82f6;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.status-message {
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.status-message.success {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #10b981;
+}
+
+.status-message.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #ef4444;
+}
+
+.status-message-close {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin-left: 10px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.status-message-close:hover {
+  opacity: 1;
+}
+
+.error-message {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-input.input-error,
+.form-textarea.input-error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 1px #ef4444;
+}
+
+.form-input.input-error:focus,
+.form-textarea.input-error:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
 }

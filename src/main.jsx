@@ -1,31 +1,14 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
-import { db } from './database/pg-instance.js'
 import App from './App.jsx'
 import './index.css'
+import { DBProvider } from './context/DBContext.jsx';
 
-async function initApp() {
-  try {
-    await db.query(`
-      CREATE TABLE IF NOT EXISTS patients (
-        id SERIAL PRIMARY KEY,
-        name TEXT NOT NULL,
-        address TEXT,
-        phone TEXT, 
-        dob TEXT,   
-        remarks TEXT
-      );
-    `)
-  } catch (error) {
-    console.error('Failed to initialize patients database schema', error)
-  }
-
-  createRoot(document.getElementById('root')).render(
-    <StrictMode>
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <DBProvider>
       <App />
-    </StrictMode>
-  )
-}
-
-initApp();
+    </DBProvider>
+  </StrictMode>
+)
