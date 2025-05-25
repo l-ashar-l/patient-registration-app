@@ -2,8 +2,8 @@ import React from 'react';
 
 export function Tabs({ active, setActive }) {
   return (
-    <div className="tabs">
-      {['Form', 'List', 'SQL Console'].map((label, index) => (
+    <>
+      {['Register Patient', 'View All Patients', 'SQL Console'].map((label, index) => (
         <button
           key={label}
           className={`tab-button ${active === index ? 'active' : ''}`}
@@ -12,6 +12,6 @@ export function Tabs({ active, setActive }) {
           {label}
         </button>
       ))}
-    </div>
+    </>
   );
 }
