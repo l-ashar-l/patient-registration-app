@@ -125,7 +125,7 @@ Data stored in PGLite persists across browser sessions because it uses the brows
 
 This application is designed for easy deployment to static hosting services due to its client-side nature and the use of PGLite for an in-browser database (eliminating the need for a separate backend server).
 
-**Your application has been successfully deployed and is live at:**
+**The Application has been successfully deployed and is live at:**
 👉 **[https://vocal-flan-7ed563.netlify.app/](https://vocal-flan-7ed563.netlify.app/)** 👈
 
 ---
