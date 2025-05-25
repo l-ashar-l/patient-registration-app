@@ -1,0 +1,26 @@
+Data Insertion queries:
+
+INSERT INTO patients (name, address, phone, dob, remarks) VALUES ('Alice Smith', '123 Oak Ave, Anytown', '9876543210', '1990-05-15', 'Regular check-up');
+
+INSERT INTO patients (name, address, phone, dob, remarks) VALUES ('Bob Johnson', '456 Pine St, Otherville', '8765432109', '1985-11-22', 'Follow-up appointment');
+
+INSERT INTO patients (name, address, phone, dob) VALUES ('Charlie Brown', '789 Elm Rd, Somewhere', '7654321098', '2000-01-01');
+
+-- Try inserting a patient with a duplicate phone number (should be blocked)
+INSERT INTO patients (name, address, phone, dob) VALUES ('Dave Davis', '101 Maple Ln, Nowhere', '9876543210', '1975-03-30');
+
+/////////////////////////////////////////
+
+Data fetching queries:
+
+SELECT id, name, address, phone, dob, remarks FROM patients;
+
+SELECT name, phone, dob FROM patients;
+
+SELECT * FROM patients WHERE name = 'Alice Smith';
+
+SELECT name, dob FROM patients WHERE dob < '1990-01-01';
+
+SELECT id, name, phone FROM patients ORDER BY name ASC;
+
+SELECT COUNT(*) FROM patients;
