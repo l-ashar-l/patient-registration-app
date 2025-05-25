@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Tabs } from './components/Tabs';
 import { PatientForm } from './components/PatientForm';
 import { PatientList } from './components/PatientList';
